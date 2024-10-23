@@ -1,0 +1,13 @@
+/* In your CSS file */
+.ticketing-platforms {
+  position: relative; /* Ensure z-index works */
+  z-index: 10; /* Set a higher value than Hero */
+}
+
+.hero {
+  position: relative; /* Ensure z-index works */
+  z-index: 5; /* Set lower than TicketingPlatforms */
+  /* background: linear-gradient(135deg, #f5ead9, #d3c6e2); */
+  color: black;
+
+}

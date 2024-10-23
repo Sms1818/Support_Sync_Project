@@ -1,0 +1,11 @@
+.env
+**/.env
+jiraenv/
+jiraenv/*
+**/jiraenv/
+/node_modules/
+
+node_modules
+dist
+dist-ssr
+*.local

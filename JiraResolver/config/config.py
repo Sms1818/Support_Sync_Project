@@ -1,0 +1,29 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+JIRA_API_URL = os.getenv('JIRA_API_URL')
+JIRA_EMAIL = os.getenv('JIRA_EMAIL')
+JIRA_API_TOKEN = os.getenv('JIRA_API_TOKEN')
+JIRA_PROJECT_KEY = os.getenv('JIRA_PROJECT_KEY')
+
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+
+PINECONE_API_KEY = os.getenv('PINECONE_API_KEY')
+PINECONE_ENV = os.getenv('PINECONE_ENV')
+PINECONE_INDEX_NAME = os.getenv('PINECONE_INDEX_NAME')
+VECTOR_DB_NAME = os.getenv('VECTOR_DB_NAME')
+PINECONE_HOST = os.getenv('PINECONE_HOST')
+
+GROQ_API_KEY=os.getenv('GROQ_API_KEY')
+
+USERNAME = os.getenv('USERNAME')
+PASSWORD = os.getenv('PASSWORD')
+SECURITY_TOKEN = os.getenv('SECURITY')
+CONSUMER_KEY = os.getenv('CONSUMER_KEY')
+CONSUMER_SECRET = os.getenv('CONSUMER_SECRET')
+
+CLICKUP_API_URL = os.getenv('CLICKUP_API_URL')
+CLICKUP_API_TOKEN = os.getenv('CLICKUP_API_TOKEN')
+
