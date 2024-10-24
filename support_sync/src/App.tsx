@@ -1,17 +1,20 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import Dashboard from './components/Dashboard';
+import Dashboard1 from './components/Dashboard1';
 import Hero from './components/Hero';
-import Navbar from './components/Navbar1';
+import ProjectScreen from './components/ProjectScreen';
+import TicketSolution from './components/TicketSolution';
 
 function App() {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
-        <Navbar />
+        {/* <Navbar /> */}
         <main className="flex-grow min-h-screen overflow-hidden">
           <Routes>
             <Route path="/" element={<Hero />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard1 />} />
+            <Route path="/project/:projectKey" element={<ProjectScreen />} />
+            <Route path="/ticket/:ticketId" element={<TicketSolution />} /> 
           </Routes>
         </main>
       </div>

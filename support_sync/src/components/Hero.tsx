@@ -1,42 +1,89 @@
+import { useState } from 'react'
+import { Button } from "@/components/ui/button"
+import { Zap, CheckCircle, Clock, BarChart } from 'lucide-react'
 import { useNavigate } from "react-router-dom";
-import "../App.css";
-import { BackgroundGradient } from "./Background"; 
 
-const Hero = () => {
+export default function Hero() {
+  const [activeUsers, setActiveUsers] = useState(4)
+  const [supportedPlatforms, setSupportedPlatforms] = useState(4)
+
   const navigate = useNavigate();
 
+  const handleStartClick = () => {
+    navigate('/dashboard');
+  }
+
   return (
-    <BackgroundGradient className="hero">
-      <div className="relative isolate px-6 pt-5 lg:px-8">
-        {" "}
-        {/* Reduced padding top */}
-        <div className="mx-auto max-w-2xl py-20 pt-10 sm:py-32 lg:py-40">
-          {" "}
-          {/* Adjusted padding */}
-          <div className="text-center">
-            <h1 className="font-bold text-4xl tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-violet-500 sm:text-6xl  mb-10">
-              Connect and Resolve with Ease
-            </h1>
+    <div className="min-h-screen bg-gray-900 text-white p-8 flex flex-col md:flex-row items-center justify-between">
+      <div className="md:w-1/2 space-y-6 mr-8">
+        <h2 className="text-3xl md:text-6xl font-bold leading-tight">
+          The New Standard for{' '}
+          <span className="text-cyan-400">AI-Powered</span> Support{' '}
+          <span className="text-indigo-400">Ticket Resolution</span>
+        </h2>
+        <p className="text-xl text-gray-300">
+          SupportSync is an AI-driven platform that streamlines your support ticket resolution across multiple platforms like Jira, Clickup, Salesforce, and more.
+        </p>
+        <div className="space-x-4">
+          <Button
+            className="
+    bg-gradient-to-r from-blue-500 to-indigo-600 
+    text-white font-bold py-3 px-8 rounded-full 
+    hover:from-indigo-600 hover:to-blue-500 
+    transition-transform transform hover:scale-105 
+    shadow-lg hover:shadow-2xl 
+    focus:outline-none focus:ring-4 focus:ring-indigo-400 
+    animate-pulse"
+            size="lg"
+            onClick={handleStartClick}
+          >
+            Get Started
+          </Button>
 
-            <p className="mt-8 text-lg leading-8 font-bold text-gray-500 bg-white/40 backdrop-blur-md border border-white/30 p-16 rounded-lg shadow-lg transform transition-transform duration-300 hover:shadow-xl hover:scale-105">
-              Discover solutions faster with our intelligent ticketing system.
-              Streamline your support process and provide timely resolutions to
-              your customers.
-            </p>
-
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <button
-                onClick={() => navigate("/dashboard")}
-                className="rounded-md border-2 border-indigo-600 bg-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow-lg hover:bg-white hover:text-indigo-600 transition duration-300"
-              >
-                Get started
-              </button>
+        </div>
+        <div className="flex space-x-8 text-sm text-gray-400">
+          <p>{activeUsers} ACTIVE USERS</p>
+          <p>{supportedPlatforms} SUPPORTED PLATFORMS</p>
+        </div>
+      </div>
+      <div className="md:w-1/2 mt-12 md:mt-0 z-10">
+        <div className="relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-lg filter blur-3xl opacity-30"></div>
+          <div className="relative bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-8 rounded-lg shadow-2xl border border-white border-opacity-20">
+            <div className="grid grid-cols-2 gap-8">
+              {['Jira', 'Clickup', 'Salesforce', 'Custom API'].map((platform) => (
+                <div key={platform} className="flex items-center space-x-4 bg-white bg-opacity-5 p-4 rounded-lg">
+                  <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-indigo-500 rounded-full flex items-center justify-center">
+                    <span className="text-2xl font-bold">{platform[0]}</span>
+                  </div>
+                  <span className="font-semibold">{platform}</span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 bg-white bg-opacity-5 p-6 rounded-lg">
+              <h3 className="text-xl font-bold mb-4">AI-Powered Resolution</h3>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-4">
+                  <Zap className="text-yellow-400" />
+                  <span>Instant solution to any issue of any category</span>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <CheckCircle className="text-green-400" />
+                  <span>Automated responses for common issues</span>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <Clock className="text-blue-400" />
+                  <span>Reduced average resolution time by 65%</span>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <BarChart className="text-purple-400" />
+                  <span>Continuous learning and improvement</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </BackgroundGradient>
-  );
-};
-
-export default Hero;
+    </div>
+  )
+}
