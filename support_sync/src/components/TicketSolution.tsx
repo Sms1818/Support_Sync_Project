@@ -18,10 +18,9 @@ export default function TicketSolution() {
     const [messages, setMessages] = useState<{ text: string; sender: string }[]>([])
     const [inputMessage, setInputMessage] = useState('')
 
-    const [selectedFiles, setSelectedFiles] = useState<FileList | null>(null);
-    const [question, setQuestion] = useState('');
-    const [chatHistory, setChatHistory] = useState<{ type: string; content: string }[]>([]);
-    const [loading, setLoading] = useState(false);
+    const [, setSelectedFiles] = useState<FileList | null>(null);
+    const [, setChatHistory] = useState<{ type: string; content: string }[]>([]);
+    const [, setLoading] = useState(false);
 
     const fileInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -70,7 +69,6 @@ export default function TicketSolution() {
     const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files) {
             setSelectedFiles(e.target.files);
-            const file = e.target.files[0];
 
             await handleProcess(e.target.files); 
         }

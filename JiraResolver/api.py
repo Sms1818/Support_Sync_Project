@@ -167,8 +167,6 @@ async def chat_with_chatbot(user_query: UserQuery):
                 detail="Please get an initial solution first using /tickets/solve endpoint"
             )
 
-        
-
         if vectorstore:
             retriever = vectorstore.as_retriever()
             similar_docs = retriever.get_relevant_documents(user_query.query)  # Use user_query.query instead of question.user_query

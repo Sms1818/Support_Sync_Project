@@ -6,7 +6,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useNavigate } from 'react-router-dom'
-import { Trello, Cloud, Database, BarChart2, Users, Ticket, Clock, Key, List, MessageSquare } from 'lucide-react'
+import { Trello, Cloud, Database, BarChart2, Key, List, MessageSquare } from 'lucide-react'
 import logo from '../Assets/logo.png'
 import logoclickup from '../Assets/logoclickup.png'
 import logosalesforce from '../Assets/logosalesforce.jpeg'
@@ -113,7 +113,7 @@ export default function Dashboard() {
 
         <h2 className="text-2xl font-semibold mb-6">Select your Platform</h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 group">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
           {platforms.map((platform) => (
             <div
               key={platform.name}

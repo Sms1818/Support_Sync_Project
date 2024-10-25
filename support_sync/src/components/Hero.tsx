@@ -4,8 +4,8 @@ import { Zap, CheckCircle, Clock, BarChart } from 'lucide-react'
 import { useNavigate } from "react-router-dom";
 
 export default function Hero() {
-  const [activeUsers, setActiveUsers] = useState(4)
-  const [supportedPlatforms, setSupportedPlatforms] = useState(4)
+  const [activeUsers] = useState(4)
+  const [supportedPlatforms] = useState(4)
 
   const navigate = useNavigate();
 
