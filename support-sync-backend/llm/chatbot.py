@@ -19,6 +19,8 @@ def chatbot_response(ticket_context, user_query, pdf_context):
     initial_solution = ticket_context.get('initial_solution', '')
     ticket_details = ticket_context.get('ticket_details', {})
 
+    conversation_history_var = '\n'.join(conversation_history)
+
     prompt = f"""
     You are an IT support assistant equipped with comprehensive context to assist users effectively. Please consider the following information when formulating your response:
 
@@ -35,7 +37,7 @@ def chatbot_response(ticket_context, user_query, pdf_context):
     {initial_solution}
 
     3. Previous Conversation:
-    {'\n'.join(conversation_history)}  # Retrieve the complete history of the conversation for context.
+    {conversation_history_var}  # Retrieve the complete history of the conversation for context.
 
     **IMPORTANT:** 
     1. Query Classification:

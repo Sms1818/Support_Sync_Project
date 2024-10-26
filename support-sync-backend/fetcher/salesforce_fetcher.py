@@ -24,7 +24,6 @@ def salesforce_login():
     sf = Salesforce(instance_url=instance_url, session_id=access_token)
     return sf
 
-# Fetch cases for a specific project
 def fetch_cases_by_project(project_name):
     sf = salesforce_login()
     query = f"""

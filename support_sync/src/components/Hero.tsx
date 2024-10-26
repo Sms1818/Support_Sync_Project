@@ -16,24 +16,24 @@ export default function Hero() {
   return (
     <div className="min-h-screen bg-gray-900 text-white p-8 flex flex-col md:flex-row items-center justify-between">
       <div className="md:w-1/2 space-y-6 mr-8">
-        <h2 className="text-3xl md:text-6xl font-bold leading-tight">
+        <h2 className="text-3xl text-center md:text-6xl md:text-left font-bold leading-tight">
           The New Standard for{' '}
           <span className="text-cyan-400">AI-Powered</span> Support{' '}
           <span className="text-indigo-400">Ticket Resolution</span>
         </h2>
-        <p className="text-xl text-gray-300">
+        <p className="text-center md:text-xl md:text-left text-gray-300">
           SupportSync is an AI-driven platform that streamlines your support ticket resolution across multiple platforms like Jira, Clickup, Salesforce, and more.
         </p>
-        <div className="space-x-4">
+        <div className="space-x-4 w-full md:justify-start flex justify-center items-center">
           <Button
             className="
-    bg-gradient-to-r from-blue-500 to-indigo-600 
-    text-white font-bold py-3 px-8 rounded-full 
-    hover:from-indigo-600 hover:to-blue-500 
-    transition-transform transform hover:scale-105 
-    shadow-lg hover:shadow-2xl 
-    focus:outline-none focus:ring-4 focus:ring-indigo-400 
-    animate-pulse"
+            bg-gradient-to-r from-blue-500 to-indigo-600 
+            text-white font-bold py-3 px-8 rounded-full 
+            hover:from-indigo-600 hover:to-blue-500 
+            transition-transform transform hover:scale-105 
+            shadow-lg hover:shadow-2xl 
+            focus:outline-none focus:ring-4 focus:ring-indigo-400 
+            animate-pulse"
             size="lg"
             onClick={handleStartClick}
           >
@@ -41,10 +41,11 @@ export default function Hero() {
           </Button>
 
         </div>
-        <div className="flex space-x-8 text-sm text-gray-400">
+        <div className="flex md:justify-start justify-center space-x-8 text-sm text-gray-400">
           <p>{activeUsers} ACTIVE USERS</p>
           <p>{supportedPlatforms} SUPPORTED PLATFORMS</p>
         </div>
+
       </div>
       <div className="md:w-1/2 mt-12 md:mt-0 z-10">
         <div className="relative">

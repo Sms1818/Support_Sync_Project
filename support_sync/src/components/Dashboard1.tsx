@@ -29,14 +29,12 @@ const tutorialSteps = [
 ]
 
 export default function Dashboard() {
-
   const [text] = useTypewriter({
     words: ['SupportSync'],
     loop: 0,
     deleteSpeed: 50,
     typeSpeed: 100,
   })
-
 
   const [selectedPlatform, setSelectedPlatform] = useState<{ name: string; icon: any; color: string; logo: string } | null>(null)
   const [isDialogOpen, setIsDialogOpen] = useState(false)
@@ -64,10 +62,10 @@ export default function Dashboard() {
 
       <NavBar />
 
-      <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <h1 className="text-4xl font-bold mb-8">Welcome to <span>{text}</span><Cursor cursorColor='#FF69B4' /> </h1>
+      <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 overflow-hidden">
+        <h1 className="text-2xl md:text-4xl font-bold mb-8">Welcome to <span>{text}</span><Cursor cursorColor='#FF69B4' /> </h1>
 
-        <div className="mb-12">
+        <div className="mb-12 overflow-x-auto">
           <div className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg border-white border-opacity-20 p-6 rounded-lg">
             <div className="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-6">
               {tutorialSteps.map((step, index) => (
@@ -99,13 +97,13 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <h2 className="text-2xl font-semibold mb-6">Select your Platform</h2>
+        <h2 className="text-xl md:text-2xl font-semibold mb-6">Select your Platform</h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12">
           {platforms.map((platform) => (
             <div
               key={platform.name}
-              className="relative h-24 overflow-hidden rounded-lg cursor-pointer group"
+              className="relative h-20 md:h-24 overflow-hidden rounded-lg cursor-pointer group"
               onClick={() => handlePlatformClick(platform)}
             >
               <div
@@ -113,58 +111,34 @@ export default function Dashboard() {
                 style={{ backgroundImage: `url(${platform.logo})` }}
               ></div>
               <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-all duration-300 flex flex-col items-center justify-center">
-                <platform.icon className="h-8 w-8 text-white transition-opacity duration-300 opacity-100 group-hover:opacity-0" />
-                <span className="text-sm font-semibold text-white mt-2 transition-opacity duration-300 opacity-100 group-hover:opacity-0">
+                <platform.icon className="h-6 w-6 md:h-8 md:w-8 text-white transition-opacity duration-300 opacity-100 group-hover:opacity-0" />
+                <span className="text-xs md:text-sm font-semibold text-white mt-1 md:mt-2 transition-opacity duration-300 opacity-100 group-hover:opacity-0">
                   {platform.name}
                 </span>
               </div>
             </div>
-
           ))}
         </div>
 
         <div>
-          <h2 className="text-2xl font-semibold mb-6">Key Features</h2>
-          <div className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg border-white border-opacity-20 p-6 rounded-lg space-y-6">
-
-            <div>
-              <h3 className="text-xl font-bold text-white">⚡ Real-Time Solutions</h3>
-              <p className="text-sm text-muted-foreground">
-                Get instant resolutions to any type of ticket within seconds using our AI-powered system.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-bold text-white">🖼️ Media Support</h3>
-              <p className="text-sm text-muted-foreground">
-                Upload documents, screenshots, or media files to receive more detailed and accurate solutions.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-bold text-white">🔍 Experience-Based Solutions</h3>
-              <p className="text-sm text-muted-foreground">
-                Our solutions are powered by experience, drawing from previous tickets to give the most relevant answers.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-bold text-white">🔗 Seamless Multi-Platform Integration</h3>
-              <p className="text-sm text-muted-foreground">
-                Easily connect and manage tickets from multiple platforms like JIRA, Salesforce, and more, all in one dashboard.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-bold text-white">🤖 AI-Powered Ticket Classification</h3>
-              <p className="text-sm text-muted-foreground">
-                Automatically categorize and prioritize incoming tickets to improve workflow efficiency.
-              </p>
-            </div>
-
+          <h2 className="text-xl md:text-2xl font-semibold mb-6">Key Features</h2>
+          <div className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg border-white border-opacity-20 p-4 md:p-6 rounded-lg space-y-4 md:space-y-6">
+            {[
+              { title: "⚡ Real-Time Solutions", description: "Get instant resolutions to any type of ticket within seconds using our AI-powered system." },
+              { title: "🖼️ Media Support", description: "Upload documents, screenshots, or media files to receive more detailed and accurate solutions." },
+              { title: "🔍 Experience-Based Solutions", description: "Our solutions are powered by experience, drawing from previous tickets to give the most relevant answers." },
+              { title: "🔗 Seamless Multi-Platform Integration", description: "Easily connect and manage tickets from multiple platforms like JIRA, Salesforce, and more, all in one dashboard." },
+              { title: "🤖 AI-Powered Ticket Classification", description: "Automatically categorize and prioritize incoming tickets to improve workflow efficiency." },
+            ].map((feature, index) => (
+              <div key={index}>
+                <h3 className="text-lg md:text-xl font-bold text-white">{feature.title}</h3>
+                <p className="text-xs md:text-sm text-muted-foreground">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
-
       </main>
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>

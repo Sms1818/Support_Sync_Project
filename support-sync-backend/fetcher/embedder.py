@@ -17,5 +17,4 @@ def embed_ticket_content(ticket):
     )
     
     embedding = response['data'][0]['embedding']
-    # print("Embedding:", embedding)
     return embedding
