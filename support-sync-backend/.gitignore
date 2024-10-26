@@ -4,3 +4,7 @@ jiraenv/
 jiraenv/*
 **/jiraenv/
 /node_modules/
+
+venv/
+venv/*
+**/venv/
