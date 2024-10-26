@@ -40,7 +40,7 @@ export default function ProjectScreen() {
       try {
         const endpoint = platform === 'jira' ? '/tickets/open/jira' : '/tickets/open/clickup'
         console.log(`Fetching from: ${endpoint}`);
-        const response = await axios.post(`https://support-sync-backend-production.up.railway.app${endpoint}`, {
+        const response = await axios.post(`https://support-sync-production.up.railway.app${endpoint}`, {
           project_key: projectKey,
         });
         console.log(response.data);
