@@ -28,7 +28,7 @@ export default function TicketSolution() {
         const fetchTicketSolution = async () => {
             if (issue) {
                 try {
-                    const response = await axios.post(`http://localhost:8000/tickets/solve/${issue.issue_key}`, {
+                    const response = await axios.post(`https://support-sync-backend-production.up.railway.app/tickets/solve/${issue.issue_key}`, {
                         project_key: issue.projectKey,
                     })
                     setInitialSolution(response.data.initial_solution)
@@ -50,7 +50,7 @@ export default function TicketSolution() {
             setInputMessage('')
 
             try {
-                const response = await axios.post('http://localhost:8000/tickets/chat', {
+                const response = await axios.post('https://support-sync-backend-production.up.railway.app/tickets/chat', {
                     ticket_id: issue.issue_key,
                     query: inputMessage,
                     project_key: issue.projectKey
@@ -83,7 +83,7 @@ export default function TicketSolution() {
         }
 
         try {
-            await axios.post('http://localhost:8000/process_pdf/', formData, {
+            await axios.post('https://support-sync-backend-production.up.railway.app/process_pdf/', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
             alert('PDFs processed successfully!');
