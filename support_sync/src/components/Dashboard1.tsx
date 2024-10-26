@@ -11,6 +11,7 @@ import logo from '../Assets/logo.png'
 import logoclickup from '../Assets/logoclickup.png'
 import logosalesforce from '../Assets/logosalesforce.jpeg'
 import { useTypewriter, Cursor } from 'react-simple-typewriter'
+import NavBar from "@/components/NavBar"
 
 const platforms = [
   { name: 'Jira', icon: Trello, color: 'bg-blue-500', logo: logo },
@@ -31,7 +32,7 @@ export default function Dashboard() {
 
   const [text] = useTypewriter({
     words: ['SupportSync'],
-    loop: 0, 
+    loop: 0,
     deleteSpeed: 50,
     typeSpeed: 100,
   })
@@ -61,20 +62,7 @@ export default function Dashboard() {
     <div className="min-h-screen bg-gradient-to-br from-[#001f3f] via-[#00172e] to-[#001030] text-white">
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
 
-      {/* Navigation Bar */}
-      <nav className="relative z-10 bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg border-b border-white border-opacity-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
-              <span className="font-bold text-xl">SupportSync</span>
-            </div>
-            <div>
-              <Button variant="ghost">Profile</Button>
-              <Button variant="ghost">Settings</Button>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <NavBar />
 
       <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <h1 className="text-4xl font-bold mb-8">Welcome to <span>{text}</span><Cursor cursorColor='#FF69B4' /> </h1>

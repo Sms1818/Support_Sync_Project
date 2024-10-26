@@ -4,11 +4,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { useParams } from 'react-router-dom'
-import { Button } from "@/components/ui/button"
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Loader2 } from 'lucide-react'
+import NavBar from "@/components/NavBar"
 
 type Priority = "High" | "Medium" | "Low"
 
@@ -67,26 +67,9 @@ export default function ProjectScreen() {
     fetchOpenTickets()
   }, [projectKey, platform])
 
-  const handlePlatformChange = (selectedPlatform: 'jira' | 'clickup') => {
-    setPlatform(selectedPlatform)
-    setLoading(true)
-  }
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#001f3f] via-[#00172e] to-[#001030] text-white">
-      <nav className="relative z-10 bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg border-b border-white border-opacity-20 mb-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
-              <span className="font-bold text-xl">SupportSync</span>
-            </div>
-            <div>
-              <Button variant="ghost" onClick={() => handlePlatformChange('jira')}>JIRA</Button>
-              <Button variant="ghost" onClick={() => handlePlatformChange('clickup')}>ClickUp</Button>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <NavBar />
 
       <div className="max-w-7xl mx-auto mt-10">
         <h1 className="text-3xl font-bold mb-10">{`${platform}/${projectKey}`}</h1>

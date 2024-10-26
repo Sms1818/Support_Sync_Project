@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Paperclip, Send } from 'lucide-react'
 import axios from 'axios'
+import NavBar from "@/components/NavBar"
 
 export default function TicketSolution() {
     const location = useLocation()
@@ -111,15 +112,7 @@ export default function TicketSolution() {
             transition={{ duration: 0.5 }}
             className="min-h-screen bg-gradient-to-br from-[#001f3f] via-[#00172e] to-[#001030] text-white"
         >
-            <nav className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg border-b border-white border-opacity-20 p-4">
-                <div className="max-w-7xl mx-auto flex justify-between items-center">
-                    <span className="font-bold text-xl">SupportSync</span>
-                    <div>
-                        <Button variant="ghost">Dashboard</Button>
-                        <Button variant="ghost">Settings</Button>
-                    </div>
-                </div>
-            </nav>
+            <NavBar />
 
             <div className="flex flex-col md:flex-row h-[calc(100vh-64px)]">
                 <div className="w-full md:w-1/2 p-6 overflow-auto">
