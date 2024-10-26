@@ -33,7 +33,7 @@ export default function ProjectScreen() {
   const [issues, setIssues] = useState<Issue[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [platform, setPlatform] = useState<'jira' | 'clickup'>('jira')
+  const [platform] = useState<'jira' | 'clickup'>('jira')
 
   useEffect(() => {
     const fetchOpenTickets = async () => {
