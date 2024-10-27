@@ -9,6 +9,8 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Loader2 } from 'lucide-react'
 import NavBar from "@/components/NavBar"
+import { API_BASE_URL_PROD } from "@/config/config"
+// import { API_BASE_URL_DEV } from "@/config/config"
 
 type Priority = "High" | "Medium" | "Low"
 
@@ -40,7 +42,7 @@ export default function ProjectScreen() {
       try {
         const endpoint = platform === 'jira' ? '/tickets/open/jira' : '/tickets/open/clickup'
         console.log(`Fetching from: ${endpoint}`);
-        const response = await axios.post(`https://support-sync-production.up.railway.app${endpoint}`, {
+        const response = await axios.post(`${API_BASE_URL_PROD}${endpoint}`, {
           project_key: projectKey,
         });
         console.log(response.data);

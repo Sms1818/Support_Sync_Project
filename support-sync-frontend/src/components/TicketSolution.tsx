@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
-import { motion } from 'framer-motion'
 import ReactMarkdown from 'react-markdown'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -10,6 +9,8 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Paperclip, Send } from 'lucide-react'
 import axios from 'axios'
 import NavBar from "@/components/NavBar"
+import { API_BASE_URL_PROD } from "@/config/config"
+// import { API_BASE_URL_DEV } from "@/config/config"
 
 export default function TicketSolution() {
     const location = useLocation()
@@ -29,7 +30,7 @@ export default function TicketSolution() {
         const fetchTicketSolution = async () => {
             if (issue) {
                 try {
-                    const response = await axios.post(`https://support-sync-production.up.railway.app/tickets/solve/${issue.issue_key}`, {
+                    const response = await axios.post(`${API_BASE_URL_PROD}/tickets/solve/${issue.issue_key}`, {
                         project_key: issue.projectKey,
                     })
                     setInitialSolution(response.data.initial_solution)
@@ -51,7 +52,7 @@ export default function TicketSolution() {
             setInputMessage('')
 
             try {
-                const response = await axios.post('https://support-sync-production.up.railway.app/tickets/chat', {
+                const response = await axios.post(`${API_BASE_URL_PROD}/tickets/chat`, {
                     ticket_id: issue.issue_key,
                     query: inputMessage,
                     project_key: issue.projectKey
@@ -71,7 +72,7 @@ export default function TicketSolution() {
         if (e.target.files) {
             setSelectedFiles(e.target.files);
 
-            await handleProcess(e.target.files); 
+            await handleProcess(e.target.files);
         }
     };
 
@@ -84,7 +85,7 @@ export default function TicketSolution() {
         }
 
         try {
-            await axios.post('https://support-sync-production.up.railway.app/process_pdf/', formData, {
+            await axios.post(`${API_BASE_URL_PROD}/process_pdf/`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
             alert('PDFs processed successfully!');
@@ -105,15 +106,8 @@ export default function TicketSolution() {
     };
 
     return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="min-h-screen bg-gradient-to-br from-[#001f3f] via-[#00172e] to-[#001030] text-white"
-        >
+        <div className="min-h-screen bg-gradient-to-br from-[#001f3f] via-[#00172e] to-[#001030] text-white">
             <NavBar />
-
             <div className="flex flex-col md:flex-row h-[calc(100vh-64px)]">
                 <div className="w-full md:w-1/2 p-6 overflow-auto">
                     {issue ? (
@@ -194,6 +188,6 @@ export default function TicketSolution() {
                     </div>
                 </div>
             </div>
-        </motion.div>
+        </div>
     )
 }
