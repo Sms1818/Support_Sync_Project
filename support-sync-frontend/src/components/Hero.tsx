@@ -1,17 +1,64 @@
-import { useState } from 'react'
-import { Button } from "@/components/ui/button"
-import { Zap, CheckCircle, Clock, BarChart } from 'lucide-react'
+import { useState, useEffect } from 'react';
+import { Button } from "@/components/ui/button";
+import { Zap, CheckCircle, Clock, BarChart } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+import { collection, addDoc, query, where, getDocs } from 'firebase/firestore';
+import { db } from "@/lib/firebase";
 
 export default function Hero() {
-  const [activeUsers] = useState(4)
-  const [supportedPlatforms] = useState(4)
+  const { user, loginWithRedirect, isAuthenticated } = useAuth0();
+  const [activeUsers] = useState(4);
+  const [supportedPlatforms] = useState(4);
 
   const navigate = useNavigate();
 
   const handleStartClick = () => {
-    navigate('/dashboard');
-  }
+    if (isAuthenticated) {
+      navigate('/dashboard');
+    } else {
+      loginWithRedirect();
+    }
+  };
+
+  useEffect(() => {
+    const addUserToFirestore = async () => {
+      console.log("inside addUserToFirestore");
+      if (user) {
+        const usersRef = collection(db, "users");
+        
+        const q = query(usersRef, where("email", "==", user.email));
+        const querySnapshot = await getDocs(q);
+
+        if (querySnapshot.empty) {
+          const userRef = await addDoc(usersRef, {
+            name: user.name,
+            email: user.email,
+            image: user.picture,
+            email_verified: user.email_verified,
+            createdAt: new Date()
+          });
+          console.log("New user added to Firestore.");
+
+          const platformsRef = collection(userRef, "platforms");
+          const platforms = ["Jira", "Clickup", "Salesforce", "Custom API"];
+          for (const platform of platforms) {
+            await addDoc(platformsRef, {
+              name: platform,
+              createdAt: new Date()
+            });
+          }
+          console.log("Platforms subcollection added for the user.");
+        } else {
+          console.log("User already exists in Firestore.");
+        }
+      }
+    };
+
+    if (isAuthenticated) {
+      addUserToFirestore();
+    }
+  }, [user, isAuthenticated]);
 
   return (
     <div className="min-h-screen bg-gray-900 text-white p-8 flex flex-col md:flex-row items-center justify-between">
@@ -26,26 +73,17 @@ export default function Hero() {
         </p>
         <div className="space-x-4 w-full md:justify-start flex justify-center items-center">
           <Button
-            className="
-            bg-gradient-to-r from-blue-500 to-indigo-600 
-            text-white font-bold py-3 px-8 rounded-full 
-            hover:from-indigo-600 hover:to-blue-500 
-            transition-transform transform hover:scale-105 
-            shadow-lg hover:shadow-2xl 
-            focus:outline-none focus:ring-4 focus:ring-indigo-400 
-            animate-pulse"
+            className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold py-3 px-8 rounded-full hover:from-indigo-600 hover:to-blue-500 transition-transform transform hover:scale-105 shadow-lg hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-indigo-400 animate-pulse"
             size="lg"
             onClick={handleStartClick}
           >
-            Get Started
+            {isAuthenticated ? "Get Started" : "Login"}
           </Button>
-
         </div>
         <div className="flex md:justify-start justify-center space-x-8 text-sm text-gray-400">
           <p>{activeUsers} ACTIVE USERS</p>
           <p>{supportedPlatforms} SUPPORTED PLATFORMS</p>
         </div>
-
       </div>
       <div className="md:w-1/2 mt-12 md:mt-0 z-10">
         <div className="relative">
@@ -86,5 +124,5 @@ export default function Hero() {
         </div>
       </div>
     </div>
-  )
+  );
 }

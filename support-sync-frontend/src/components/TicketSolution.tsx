@@ -109,7 +109,7 @@ export default function TicketSolution() {
         <div className="min-h-screen bg-gradient-to-br from-[#001f3f] via-[#00172e] to-[#001030] text-white">
             <NavBar />
             <div className="flex flex-col md:flex-row h-[calc(100vh-64px)]">
-                <div className="w-full md:w-1/2 p-6 overflow-auto">
+                <div className="w-full md:w-1/2 p-6 overflow-auto mt-16">
                     {issue ? (
                         <>
                             <h2 className="text-2xl font-bold mb-4">{issue.title}</h2>
@@ -146,7 +146,7 @@ export default function TicketSolution() {
                     )}
                 </div>
 
-                <div className="w-full md:w-1/2 p-6 flex flex-col m-5 bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-lg border border-white border-opacity-20">
+                <div className="mt-20 w-full md:w-1/2 p-6 flex flex-col m-5 bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-lg border border-white border-opacity-20">
                     <ScrollArea className="flex-grow mb-4">
                         {messages.map((message, index) => (
                             <div key={index} className={`mb-2 ${message.sender === 'user' ? 'text-right' : 'text-left'}`}>

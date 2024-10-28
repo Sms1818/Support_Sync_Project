@@ -1,15 +1,20 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useAuth0 } from "@auth0/auth0-react";
+import { DropdownMenuComp } from "./DropdownMenuComp";
 
 const NavBar = () => {
+  
   const navigate = useNavigate();
+
+  const {isAuthenticated} = useAuth0();
 
   const handleLogoClick = () => {
     navigate("/dashboard");
   };
 
   return (
-    <nav className="relative z-10 bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg border-b border-white border-opacity-20">
+    <nav className="fixed z-50 top-0 w-full bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg border-b border-white border-opacity-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -21,8 +26,11 @@ const NavBar = () => {
             </span>
           </div>
           <div>
-            <Button variant="ghost">Profile</Button>
-            <Button variant="ghost">Settings</Button>
+            {isAuthenticated ? (
+              <DropdownMenuComp />
+            ) : (
+              <Button variant="ghost">Login</Button>
+            )}
           </div>
         </div>
       </div>

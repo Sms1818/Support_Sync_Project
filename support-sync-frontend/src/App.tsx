@@ -3,6 +3,7 @@ import Dashboard1 from './components/Dashboard1';
 import Hero from './components/Hero';
 import ProjectScreen from './components/ProjectScreen';
 import TicketSolution from './components/TicketSolution';
+import ProfileScreen from './components/ProfileScreen'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard1 />} />
             <Route path="/project/:projectKey" element={<ProjectScreen />} />
             <Route path="/ticket/:ticketId" element={<TicketSolution />} /> 
+            <Route path="/profile" element={<ProfileScreen />} /> 
           </Routes>
         </main>
       </div>

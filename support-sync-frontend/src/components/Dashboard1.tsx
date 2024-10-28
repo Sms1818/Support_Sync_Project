@@ -12,6 +12,7 @@ import logoclickup from '../Assets/logoclickup.png'
 import logosalesforce from '../Assets/logosalesforce.jpeg'
 import { useTypewriter, Cursor } from 'react-simple-typewriter'
 import NavBar from "@/components/NavBar"
+import { useAuth0 } from "@auth0/auth0-react";
 
 const platforms = [
   { name: 'Jira', icon: Trello, color: 'bg-blue-500', logo: logo },
@@ -39,6 +40,13 @@ export default function Dashboard() {
   const [selectedPlatform, setSelectedPlatform] = useState<{ name: string; icon: any; color: string; logo: string } | null>(null)
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [projectKey, setProjectKey] = useState('')
+
+  const { user, isAuthenticated } = useAuth0()
+
+  if (!isAuthenticated) {
+    return <p>Please login to access the dashboard.</p>;
+  }
+
   const navigate = useNavigate()
 
   const handlePlatformClick = (platform: SetStateAction<{ name: string; icon: any; color: string; logo: string } | null>) => {
@@ -63,7 +71,10 @@ export default function Dashboard() {
       <NavBar />
 
       <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 overflow-hidden">
-        <h1 className="text-2xl md:text-4xl font-bold mb-8">Welcome to <span>{text}</span><Cursor cursorColor='#FF69B4' /> </h1>
+        <h1 className="text-2xl mt-16 md:text-4xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500">
+          Hey there {user?.name?.split(" ")[0]}, Welcome to <span>{text}</span>
+          <Cursor cursorColor='#FF69B4' />
+        </h1>
 
         <div className="mb-12 overflow-x-auto">
           <div className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg border-white border-opacity-20 p-6 rounded-lg">
