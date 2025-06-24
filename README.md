@@ -3,6 +3,9 @@ FastAPI Vite Tailwind CSS Docker LangChain Llama Pinecone
 
 SupportSync is an AI-powered ticketing solution that streamlines issue resolution across multiple platforms. It leverages past solutions to provide intelligent, context-aware responses to new tickets.
 
+![image](https://github.com/user-attachments/assets/f9046f60-4e88-4202-81b9-018617b9db9a)
+
+
 SupportSync Hero
 
 🌟 Features
