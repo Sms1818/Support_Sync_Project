@@ -1,12 +1,12 @@
 SupportSync 🚀
+![image](https://github.com/user-attachments/assets/bf3c1093-87fd-42a6-ad21-13eb8a0dc8a2)
+
 FastAPI Vite Tailwind CSS Docker LangChain Llama Pinecone
 
 SupportSync is an AI-powered ticketing solution that streamlines issue resolution across multiple platforms. It leverages past solutions to provide intelligent, context-aware responses to new tickets.
 
 ![image](https://github.com/user-attachments/assets/f9046f60-4e88-4202-81b9-018617b9db9a)
 
-
-SupportSync Hero
 
 🌟 Features
 Support for multiple ticketing platforms: JIRA, ClickUp, and Salesforce
@@ -16,16 +16,17 @@ Interactive chatbot for detailed issue discussions
 Unified platform for managing tickets from various sources
 Document attachment support: Users can attach documents for more personalized and accurate responses from the chatbot
 📸 Screenshots
-Dashboard
-Dashboard
 
-Dashboard
+![image](https://github.com/user-attachments/assets/24145caf-fbad-49bf-b641-2cba7358c38a)
+
 
 Streamlined Open Issues/Tickets
-Ticket Resolution
+![image](https://github.com/user-attachments/assets/6655ef10-34ab-4ef6-8525-78167413beb9)
+
 
 TICKET RESOLUTION AND AI Chatbot
-AI Chatbot
+![image](https://github.com/user-attachments/assets/6eb46ccc-acfb-4429-b4c2-56f55ee773f1)
+
 
 🚀 Getting Started
 Clone the Repository
@@ -104,7 +105,9 @@ Connect your ticketing platforms (JIRA, ClickUp, Salesforce).
 View and select tickets from the unified dashboard.
 Click on a ticket to see the AI-generated solution.
 Use the chatbot for more detailed discussions or clarifications.
-Usage Demo
+
+![image](https://github.com/user-attachments/assets/0d446949-1b29-48da-b058-4a19f74ab126)
+
 
 🛠️ Technologies Used
 Backend: Python, FastAPI, LLMs (Llama 3.2 90B), VectorDB
@@ -120,8 +123,6 @@ Interactive Refinement: Users can further discuss the issue with the AI chatbot 
 📝 Note
 This project is designed for streamlining support processes. Please ensure you have the necessary permissions to access and process ticket data from the integrated platforms.
 
-🤝 Contributing
-Contributions, issues, and feature requests are welcome! Feel free to check issues page.
 
 📜 License
 This project is AGPL-3.0 licensed.
