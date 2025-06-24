@@ -1,5 +1,13 @@
-SupportSync 🚀
-![image](https://github.com/user-attachments/assets/bf3c1093-87fd-42a6-ad21-13eb8a0dc8a2)
+# **SupportSync 🚀**
+
+
+![image](https://github.com/user-attachments/assets/bf3c1093-87fd-42a6-ad21-13eb8a0dc8a2) ![image](https://github.com/user-attachments/assets/e1399686-627c-4656-b7c8-e5e23b543e40) ![image](https://github.com/user-attachments/assets/e4c6b01d-39a4-4446-b3cc-52e4c634ce59) ![image](https://github.com/user-attachments/assets/b27bb201-b6c5-4dc3-93ad-836b1434fa33) ![image](https://github.com/user-attachments/assets/0a7fbd67-3b2f-47ef-bdb5-823437594bcf) ![image](https://github.com/user-attachments/assets/5cf0b2cb-5236-45e5-a70e-8b34093ef341) ![image](https://github.com/user-attachments/assets/0098e1f4-95a5-49c7-902b-98e5bafe307b)
+
+
+
+
+
+
 
 FastAPI Vite Tailwind CSS Docker LangChain Llama Pinecone
 
@@ -15,36 +23,54 @@ Context-aware solutions based on past resolved tickets
 Interactive chatbot for detailed issue discussions
 Unified platform for managing tickets from various sources
 Document attachment support: Users can attach documents for more personalized and accurate responses from the chatbot
+
 📸 Screenshots
 
 ![image](https://github.com/user-attachments/assets/24145caf-fbad-49bf-b641-2cba7358c38a)
 
 
 Streamlined Open Issues/Tickets
+
 ![image](https://github.com/user-attachments/assets/6655ef10-34ab-4ef6-8525-78167413beb9)
 
 
 TICKET RESOLUTION AND AI Chatbot
+
 ![image](https://github.com/user-attachments/assets/6eb46ccc-acfb-4429-b4c2-56f55ee773f1)
 
 
-🚀 Getting Started
-Clone the Repository
-git clone https://github.com/Prathamesh72003/support-sync.git
+# 🚀 Getting Started
+
+## 📦 Clone the Repository
+
+```bash
+git clone https://github.com/Sms1818/Support_Sync_Project
+
 cd support-sync
+```
+
+
 Backend Setup
-Navigate to the backend directory:
 
+1. Navigate to the backend directory:
+```
 cd support-sync-backend
-Create and activate a virtual environment:
+```
 
+2. Create and activate a virtual environment:
+```
 python -m venv venv
 source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-Install dependencies:
+```
 
+3. Install dependencies:
+```
 pip install -r requirements.txt
-Configure the .env file with the following variables:
+```
 
+4. Configure the .env file with the following variables:
+
+```
 # JIRA
 JIRA_API_URL=your_jira_api_url
 JIRA_EMAIL=your_jira_email
@@ -74,55 +100,74 @@ CONSUMER_SECRET=your_salesforce_consumer_secret
 # ClickUp
 CLICKUP_API_URL=your_clickup_api_url
 CLICKUP_API_TOKEN=your_clickup_api_token
-Run the backend server:
-
+```
+5. Run the backend server:
+```
 uvicorn api:app --reload
+```
+
+
 Frontend Setup
-Navigate to the frontend directory:
 
+1. Navigate to the frontend directory:
+```
 cd ../support-sync-frontend
-Install dependencies:
+```
 
+2. Install dependencies:
+```
 npm install
-Run the frontend development server:
+```
 
+3. Run the frontend development server:
+```
 npm run dev
+```
+
+
 🐳 Docker Setup
+
 If you prefer using Docker, follow these steps:
 
-Ensure you have Docker and Docker Compose installed on your system.
+1. Ensure you have Docker and Docker Compose installed on your system.
 
-Configure the .env file as mentioned in the Backend Setup section.
+2. Configure the .env file as mentioned in the Backend Setup section.
 
-From the root directory, run:
-
+3. From the root directory, run:
+```
 docker-compose up --build
-Once the build is complete, you'll see the port number in the console where the application is running.
+```
+
+4. Once the build is complete, you'll see the port number in the console where the application is running.
 
 🎭 Usage
-Access the SupportSync dashboard through your browser.
-Connect your ticketing platforms (JIRA, ClickUp, Salesforce).
-View and select tickets from the unified dashboard.
-Click on a ticket to see the AI-generated solution.
-Use the chatbot for more detailed discussions or clarifications.
+
+1. Access the SupportSync dashboard through your browser.
+2. Connect your ticketing platforms (JIRA, ClickUp, Salesforce).
+3. View and select tickets from the unified dashboard.
+4. Click on a ticket to see the AI-generated solution.
+5. Use the chatbot for more detailed discussions or clarifications.
 
 ![image](https://github.com/user-attachments/assets/0d446949-1b29-48da-b058-4a19f74ab126)
 
 
-🛠️ Technologies Used
-Backend: Python, FastAPI, LLMs (Llama 3.2 90B), VectorDB
-Frontend: Vite.js, Tailwind CSS, Framer Motion, shadcn/ui
-Database: Pinecone (Vector Database)
-AI: GROQ API (Llama 3.2 90B Text Preview Model)
-Containerization: Docker
+## 🛠️ Tech Stack
+
+- **Backend:** Python, FastAPI, LLMs (LLaMA 3.2 90B), VectorDB  
+- **Frontend:** Vite.js, Tailwind CSS, Framer Motion, shadcn/ui  
+- **Database:** Pinecone (Vector Database)  
+- **AI Model:** GROQ API (LLaMA 3.2 90B Text Preview Model)  
+- **Containerization:** Docker
+
 🧠 How It Works
-Ticket Collection: SupportSync gathers tickets from JIRA, ClickUp, and Salesforce.
-Context Analysis: The system analyzes past solved tickets related to the current issue.
-AI Solution Generation: Using the Llama 3.2 90B model, SupportSync generates a solution, considering the historical context.
-Interactive Refinement: Users can further discuss the issue with the AI chatbot for more detailed solutions.
+
+1. Ticket Collection: SupportSync gathers tickets from JIRA, ClickUp, and Salesforce.
+2. Context Analysis: The system analyzes past solved tickets related to the current issue.
+3. AI Solution Generation: Using the Llama 3.2 90B model, SupportSync generates a solution, considering the historical context.
+4. Interactive Refinement: Users can further discuss the issue with the AI chatbot for more detailed solutions.
+   
 📝 Note
+
 This project is designed for streamlining support processes. Please ensure you have the necessary permissions to access and process ticket data from the integrated platforms.
 
 
-📜 License
-This project is AGPL-3.0 licensed.
